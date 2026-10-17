@@ -3,77 +3,170 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Loja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vitrine Store</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #eeeeee;
-      text-align: center;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      color: #222;
     }
 
     header {
       background: #142850;
       color: white;
-      padding: 20px;
+      text-align: center;
+      padding: 25px 12px;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .barra {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .conteudo {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 14px;
     }
 
     .produtos {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      padding: 12px;
+      gap: 14px;
     }
 
     .produto {
       background: white;
+      border-radius: 14px;
       padding: 12px;
-      border-radius: 12px;
+      box-shadow: 0 3px 12px #00000010;
     }
 
-    img {
+    .produto img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .produto h3 {
+      margin-bottom: 8px;
+    }
+
+    .preco {
+      color: #087443;
+      font-size: 20px;
+      font-weight: bold;
     }
 
     button {
-      background: green;
-      color: white;
-      padding: 10px;
+      width: 100%;
+      padding: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 9px;
+      background: #087443;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      opacity: 0.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #666;
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <h1>Minha Loja</h1>
-    <p>Estilo e qualidade para você!</p>
+    <h1>VITRINE STORE</h1>
+    <p>Seu estilo começa aqui.</p>
   </header>
 
-  <main class="produtos">
-    <div class="produto">
-      <h2>Camiseta</h2>
-      <img src="https://placehold.co/300x200?text=Camiseta"
-           alt="Imagem ilustrativa de camiseta">
-      <p>Preço: R$ 50,00</p>
-      <button onclick="alert('Obrigado pelo interesse!')">
-        Ver produto
-      </button>
-    </div>
+  <div class="barra">
+    🛒 Meu carrinho: <span id="quantidade">0</span> itens
+  </div>
 
-    <div class="produto">
-      <h2>Tênis</h2>
-      <img src="https://placehold.co/300x200?text=Tenis"
-           alt="Imagem ilustrativa de tênis">
-      <p>Preço: R$ 120,00</p>
-      <button onclick="alert('Obrigado pelo interesse!')">
-        Ver produto
-      </button>
+  <main class="conteudo">
+    <h2>Nossos produtos</h2>
+    <p>Escolha seu favorito!</p>
+
+    <div class="produtos">
+
+      <article class="produto">
+        <img
+          src="https://placehold.co/400x300/e5e7eb/142850?text=Camiseta"
+          alt="Imagem ilustrativa de camiseta">
+        <h3>Camiseta</h3>
+        <p class="preco">R$ 50,00</p>
+        <button onclick="adicionar()">Adicionar</button>
+      </article>
+
+      <article class="produto">
+        <img
+          src="https://placehold.co/400x300/e5e7eb/142850?text=Tenis"
+          alt="Imagem ilustrativa de tênis">
+        <h3>Tênis</h3>
+        <p class="preco">R$ 120,00</p>
+        <button onclick="adicionar()">Adicionar</button>
+      </article>
+
+      <article class="produto">
+        <img
+          src="https://placehold.co/400x300/e5e7eb/142850?text=Bone"
+          alt="Imagem ilustrativa de boné">
+        <h3>Boné</h3>
+        <p class="preco">R$ 35,00</p>
+        <button onclick="adicionar()">Adicionar</button>
+      </article>
+
+      <article class="produto">
+        <img
+          src="https://placehold.co/400x300/e5e7eb/142850?text=Mochila"
+          alt="Imagem ilustrativa de mochila">
+        <h3>Mochila</h3>
+        <p class="preco">R$ 90,00</p>
+        <button onclick="adicionar()">Adicionar</button>
+      </article>
+
     </div>
   </main>
+
+  <footer>
+    Minha primeira loja virtual | Projeto de aprendizagem
+  </footer>
+
+  <script>
+    let quantidade = 0;
+
+    function adicionar() {
+      quantidade = quantidade + 1;
+
+      document.getElementById("quantidade").textContent =
+        quantidade;
+    }
+  </script>
+
 </body>
 </html>
