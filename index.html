@@ -193,6 +193,29 @@ function adicionar(nome, preco) {
     Object.entries(produtos)
       .map(([nome, qtd]) => nome + " (" + qtd + ")")
       .join(", ");
+}function finalizarPedido() {
+  if (quantidade === 0) {
+    alert("Adicione pelo menos um produto ao carrinho!");
+    return;
+  }
+
+  const lista = Object.entries(produtos)
+    .map(([nome, qtd]) => `${nome} (${qtd})`)
+    .join("\n");
+
+  const mensagem =
+    "Olá! Gostaria de fazer um pedido na VITRINE STORE.\n\n" +
+    "Produtos:\n" + lista + "\n\n" +
+    "Total: R$ " +
+    total.toFixed(2).replace(".", ",") +
+    "\n\nObrigado!";
+
+  const telefone = "5519990038612";
+
+  const link = "https://wa.me/" + telefone +
+    "?text=" + encodeURIComponent(mensagem);
+
+  window.open(link, "_blank");
 }
 </script>
 </body>
