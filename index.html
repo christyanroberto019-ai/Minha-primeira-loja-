@@ -169,7 +169,30 @@
       document.getElementById("quantidade").textContent =
         quantidade;
     }
-  </script>
+  </script let quantidade = 0;
+let total = 0;
+let produtos = {};
+
+function adicionar(nome, preco) {
+  quantidade++;
+  total += preco;
+
+  if (produtos[nome]) {
+    produtos[nome]++;
+  } else {
+    produtos[nome] = 1;
+  }
+
+  document.getElementById("quantidade").textContent = quantidade;
+
+  document.getElementById("total").textContent =
+    total.toFixed(2).replace(".", ",");
+
+  document.getElementById("produtos-carrinho").textContent =
+    Object.entries(produtos)
+      .map(([nome, qtd]) => nome + " (" + qtd + ")")
+      .join(", ");
+}
 
 </body>
 </html>
