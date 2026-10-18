@@ -193,7 +193,7 @@ let produtos = carrinhoSalvo?.produtos ?? {};
 
 function adicionar(nome, preco) {  if (nome === "Camiseta") {
     const tamanho = document.getElementById("tamanho-camiseta").value;
-    nome = "Camiseta tamanho " + tamanho;localStorage.setItem(
+    nome = "Camiseta tamanho " + tamanho);
   "vitrineCarrinho",
   JSON.stringify({
     quantidade: quantidade,
