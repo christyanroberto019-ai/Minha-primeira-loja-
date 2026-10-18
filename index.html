@@ -183,9 +183,13 @@ h
   </footer>
 
   <script>
-let quantidade = 0;
-let total = 0;
-let produtos = {};
+const carrinhoSalvo = JSON.parse(
+  localStorage.getItem("vitrineCarrinho") || "null"
+);
+
+let quantidade = carrinhoSalvo?.quantidade ?? 0;
+let total = carrinhoSalvo?.total ?? 0;
+let produtos = carrinhoSalvo?.produtos ?? {};
 
 function adicionar(nome, preco) {  if (nome === "Camiseta") {
     const tamanho = document.getElementById("tamanho-camiseta").value;
