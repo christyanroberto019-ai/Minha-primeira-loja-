@@ -187,7 +187,10 @@ let quantidade = 0;
 let total = 0;
 let produtos = {};
 
-function adicionar(nome, preco) {
+function adicionar(nome, preco) {  if (nome === "Camiseta") {
+    const tamanho = document.getElementById("tamanho-camiseta").value;
+    nome = "Camiseta tamanho " + tamanho;
+}
   quantidade++;
   total += preco;
 
