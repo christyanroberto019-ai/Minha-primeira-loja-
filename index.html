@@ -191,17 +191,20 @@ let quantidade = carrinhoSalvo?.quantidade ?? 0;
 let total = carrinhoSalvo?.total ?? 0;
 let produtos = carrinhoSalvo?.produtos ?? {};
 
-function adicionar(nome, preco) {  if (nome === "Camiseta") {
+function adicionar(nome, preco) {
+  if (nome === "Camiseta") {
     const tamanho = document.getElementById("tamanho-camiseta").value;
-    nome = "Camiseta tamanho " + tamanho);
-  "vitrineCarrinho",
-  JSON.stringify({
-    quantidade: quantidade,
-    total: total,
-    produtos: produtos
-  })
-);
-}
+    nome = "Camiseta tamanho " + tamanho;
+  }
+
+  quantidade++;
+  total += preco;
+
+  if (produtos[nome]) {
+    produtos[nome]++;
+  } else {
+    produtos[nome] = 1;
+  }
   quantidade++;
   total += preco;
 
