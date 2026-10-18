@@ -219,7 +219,14 @@ function adicionar(nome, preco) {  if (nome === "Camiseta") {
     document.getElementById("produtos-carrinho").textContent =
     Object.entries(produtos)
       .map(([nome, qtd]) => nome + " (" + qtd + ")")
-      .join(", ");
+      .join(", ");localStorage.setItem(
+  "vitrineCarrinho",
+  JSON.stringify({
+    quantidade: quantidade,
+    total: total,
+    produtos: produtos
+  })
+);
 }
 
 function finalizarPedido() {
